@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * paramVitaux
  *
- * @ORM\Table(name="entityparam_vitaux")
+ * @ORM\Table(name="param_vitaux")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\Entity\paramVitauxRepository")
  */
 class paramVitaux

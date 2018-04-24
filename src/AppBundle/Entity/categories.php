@@ -22,74 +22,12 @@ class categories
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="gynecologie", type="string", length=255)
+     * @param int $id
      */
-    private $gynecologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="hurologie_nephrologie", type="string", length=255)
-     */
-    private $hurologieNephrologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="digestif", type="string", length=255)
-     */
-    private $digestif;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="osteo_rhumato", type="string", length=255)
-     */
-    private $osteoRhumato;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="neurologie", type="string", length=255)
-     */
-    private $neurologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cardiologie", type="string", length=255)
-     */
-    private $cardiologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pneumologie", type="string", length=255)
-     */
-    private $pneumologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="endocrinologie", type="string", length=255)
-     */
-    private $endocrinologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="dermatologie", type="string", length=255)
-     */
-    private $dermatologie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ophtalmologie", type="string", length=255)
-     */
-    private $ophtalmologie;
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
 
     /**
@@ -103,243 +41,79 @@ class categories
     }
 
     /**
-     * Set gynecologie
+     * @var string
      *
-     * @param string $gynecologie
-     *
-     * @return categories
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    public function setGynecologie($gynecologie)
-    {
-        $this->gynecologie = $gynecologie;
-
-        return $this;
-    }
+    private $nom;
 
     /**
-     * Get gynecologie
-     *
      * @return string
      */
-    public function getGynecologie()
+    public function getNom()
     {
-        return $this->gynecologie;
+        return $this->nom;
     }
 
     /**
-     * Set hurologieNephrologie
-     *
-     * @param string $hurologieNephrologie
-     *
-     * @return categories
+     * @param string $nom
      */
-    public function setHurologieNephrologie($hurologieNephrologie)
+    public function setNom($nom)
     {
-        $this->hurologieNephrologie = $hurologieNephrologie;
-
-        return $this;
+        $this->nom = $nom;
     }
 
     /**
-     * Get hurologieNephrologie
+     * @var string
      *
+     * @ORM\Column(name="description_short", type="text", length=255)
+     */
+    private $descriptionShort;
+
+    /**
      * @return string
      */
-    public function getHurologieNephrologie()
+    public function getDescriptionShort()
     {
-        return $this->hurologieNephrologie;
+        return $this->descriptionShort;
     }
 
     /**
-     * Set digestif
-     *
-     * @param string $digestif
-     *
-     * @return categories
+     * @param string $descriptionShort
      */
-    public function setDigestif($digestif)
+    public function setDescriptionShort($descriptionShort)
     {
-        $this->digestif = $digestif;
-
-        return $this;
+        $this->descriptionShort = $descriptionShort;
     }
 
     /**
-     * Get digestif
+     * @var string
      *
+     * @ORM\Column(name="description_long", type="text", length=255)
+     */
+    private $descriptionLong;
+
+    /**
      * @return string
      */
-    public function getDigestif()
+    public function getDescriptionLong()
     {
-        return $this->digestif;
+        return $this->descriptionLong;
     }
 
     /**
-     * Set osteoRhumato
-     *
-     * @param string $osteoRhumato
-     *
-     * @return categories
+     * @param string $descriptionLong
      */
-    public function setOsteoRhumato($osteoRhumato)
+    public function setDescriptionLong($descriptionLong)
     {
-        $this->osteoRhumato = $osteoRhumato;
-
-        return $this;
+        $this->descriptionLong = $descriptionLong;
     }
 
-    /**
-     * Get osteoRhumato
-     *
-     * @return string
-     */
-    public function getOsteoRhumato()
-    {
-        return $this->osteoRhumato;
-    }
 
-    /**
-     * Set neurologie
-     *
-     * @param string $neurologie
-     *
-     * @return categories
-     */
-    public function setNeurologie($neurologie)
-    {
-        $this->neurologie = $neurologie;
 
-        return $this;
-    }
 
-    /**
-     * Get neurologie
-     *
-     * @return string
-     */
-    public function getNeurologie()
-    {
-        return $this->neurologie;
-    }
 
-    /**
-     * Set cardiologie
-     *
-     * @param string $cardiologie
-     *
-     * @return categories
-     */
-    public function setCardiologie($cardiologie)
-    {
-        $this->cardiologie = $cardiologie;
 
-        return $this;
-    }
 
-    /**
-     * Get cardiologie
-     *
-     * @return string
-     */
-    public function getCardiologie()
-    {
-        return $this->cardiologie;
-    }
-
-    /**
-     * Set pneumologie
-     *
-     * @param string $pneumologie
-     *
-     * @return categories
-     */
-    public function setPneumologie($pneumologie)
-    {
-        $this->pneumologie = $pneumologie;
-
-        return $this;
-    }
-
-    /**
-     * Get pneumologie
-     *
-     * @return string
-     */
-    public function getPneumologie()
-    {
-        return $this->pneumologie;
-    }
-
-    /**
-     * Set endocrinologie
-     *
-     * @param string $endocrinologie
-     *
-     * @return categories
-     */
-    public function setEndocrinologie($endocrinologie)
-    {
-        $this->endocrinologie = $endocrinologie;
-
-        return $this;
-    }
-
-    /**
-     * Get endocrinologie
-     *
-     * @return string
-     */
-    public function getEndocrinologie()
-    {
-        return $this->endocrinologie;
-    }
-
-    /**
-     * Set dermatologie
-     *
-     * @param string $dermatologie
-     *
-     * @return categories
-     */
-    public function setDermatologie($dermatologie)
-    {
-        $this->dermatologie = $dermatologie;
-
-        return $this;
-    }
-
-    /**
-     * Get dermatologie
-     *
-     * @return string
-     */
-    public function getDermatologie()
-    {
-        return $this->dermatologie;
-    }
-
-    /**
-     * Set ophtalmologie
-     *
-     * @param string $ophtalmologie
-     *
-     * @return categories
-     */
-    public function setOphtalmologie($ophtalmologie)
-    {
-        $this->ophtalmologie = $ophtalmologie;
-
-        return $this;
-    }
-
-    /**
-     * Get ophtalmologie
-     *
-     * @return string
-     */
-    public function getOphtalmologie()
-    {
-        return $this->ophtalmologie;
-    }
 }
 
