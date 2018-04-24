@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="card mb-4">
+    <div class="card mb-4" style="margin-top: 10px;">
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-4">
-
+                    <img src="{{ asset('uploads/category/' ~ category.image) }}">
                 </div>
                 <div class="col-lg-8">
                     <h2 class="card-title">
@@ -19,6 +19,7 @@
         </div>
         <div class="card-footer text-muted">
             <a href="">Ajouter</a>
+            <a href="{{ path('category_edit', {'id': category.id}) }}">Modifier</a>
         </div>
     </div>
 

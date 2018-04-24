@@ -5,18 +5,40 @@
     <div class="row" style="margin-top: 10px;">
         <div class="col-md-8">
             {% for article in articles %}
-                <div class="card- mb-4">
-                    <img class="card-img-top" src="" width="750px" height="300px" alt="card image">
+                <div class="card mb-4">
+                    {% if article.image == '' %}
+                    <img class="card-img-top" src="{{ asset('uploads/category/default-image.png') }}" width="750px" height="300px" alt="card image">
+                    {% else %}
+                    <img class="card-img-top" src="{{ asset('uploads/category/' ~ article.image) }}" width="750px" height="300px" alt="card image">
+                    {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ article.titre }}</h2>
                         <p class="card-text">{{ article.description }}</p>
-                        <a href="{{ path('article_id', {'id': article.id}) }}" class="btn btn-primary">Lire l'article</a>
+                        <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lire l'article</a>
                     </div>
                 </div>
                 {% else %}
                 <p>Pas encore d'articles</p>
             {% endfor %}
         </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% for category in categories %}
+                                {% if category.articles|length >= 1 %}
+                                    <a href="{{ path('category_id', {'id': category.id}) }}">{{ category.nom }}({{ category.articles|length }})</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 {% endblock %}

@@ -21,6 +21,74 @@ class categories
      */
     private $id;
 
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
+    /**
+     * Contiendra l'objet image du formulaire
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category")
+     */
+    private $articles;
+
+    /**
+     * @return Article[]
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param mixed $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+    }
+
+
+
+
+
     /**
      * @param int $id
      */
@@ -108,11 +176,6 @@ class categories
     {
         $this->descriptionLong = $descriptionLong;
     }
-
-
-
-
-
 
 
 }

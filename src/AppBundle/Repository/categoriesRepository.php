@@ -10,6 +10,12 @@ namespace AppBundle\Repository;
  */
 class categoriesRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
     public function getCategoryById($id){
         $qb = $this->createQueryBuilder('category');
 
