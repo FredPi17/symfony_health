@@ -20,6 +20,22 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ArticleController extends Controller
 {
+
+    /**
+     * @Route("/", name="articles")
+     *
+     */
+    public function getArticles(){
+        $articles = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+
+        return $this->render("articles/index.html.twig", [
+            'articles' => $articles,
+        ]);
+    }
+
     /**
      * @route("/{id}", name="article_id")
      * @param $id

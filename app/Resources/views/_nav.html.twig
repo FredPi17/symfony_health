@@ -14,16 +14,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Hello</a>
+                    <a class="nav-link" href="{{ path('articles') }}">Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Articles</a>
+                    <a class="nav-link" href="{{ path('categories') }}">Catégories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Catégories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Commentaires</a>
+                    <a class="nav-link" href="{{ path('suivi') }}">Suivi</a>
                 </li>
                 {# IS_AUTHENTICATED_FULLY est un ROLE que l'on a lorsqu'on est connecté, peu importe le role user/admin #}
                 {% if is_granted('ROLE_USER') %}

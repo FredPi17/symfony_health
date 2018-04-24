@@ -2,10 +2,19 @@
 
 {% block body %}
 
-    {% for category in categories %}
+    <div class="row" style="margin-top: 10px;">
+        {% for category in categories %}
+            <div class="col-4">
+                <div class="card flex-md-row mb-4 box-shadow ">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <h3 class="mb-0">{{ category.nom }}</h3>
+                        <p class="card-text mb-auto">{{ category.descriptionShort|length > 40 ? category.descriptionShort|slice(0, 40) ~ '...' : category.descriptionShort  }}</p>
+                        <a href="{{ path('category_id', {'id': category.id}) }}">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
 
-    {{ category.name }}
-
-    {% endfor %}
+    </div>
 
 {% endblock %}
