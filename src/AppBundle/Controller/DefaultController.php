@@ -29,10 +29,16 @@ class DefaultController extends Controller
             ->getRepository(Article::class)
             ->getLastArticles();
 
+        $articles = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->getArticles();
+
         return $this->render("default/index.html.twig", [
             'categories' => $categories,
             "articleIndex" => $articleTop,
             "lastArticles" => $lastArticles,
+            "articles" => $articles,
         ]);
     }
 }

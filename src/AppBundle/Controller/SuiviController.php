@@ -12,11 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class DataController
+ * Class SuiviController
  * @package AppBundle\Controller
  * @Route("suivi")
  */
-class DataController extends Controller
+class SuiviController extends Controller
 {
     /**
      * @Route("/", name="suivi")
@@ -26,4 +26,6 @@ class DataController extends Controller
 
         return $this->render('suivi/index.html.twig');
     }
+
+
 }

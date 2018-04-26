@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    {% if article != '' %}
+    {% if article.isActive == "1" %}
 <h1 class="mt-4 mb-3">
     {{ article.titre }}
 </h1>
     <div class="row">
         <div class="col-lg-8">
+
             {% if article.image == '' %}
             <img src="{{ asset('uploads/category/default-image.png') }}" style="width:900px; height: 300px;" class="img-fluid rounded">
             {% else %}
             <img src="{{ asset('uploads/category/' ~ article.image) }}" class="img-fluid rounded">
             {% endif %}
             <hr>
-            <p>Posté le {{ article.date|date('Y-m-d H:i:s') }}</p>
+            <p>Posté le {{ article.date|date('d-m-Y') }}</p>
             <hr>
             <p class="lead">{{ article.description }}</p>
             <p>{{ article.contenu }}</p>
@@ -24,7 +26,7 @@
                     <form method="get">
                         <div class="form-group">
                             {{ form_start(form) }}
-                                {{ form_widget(form.content, { 'attr': {'class': 'form-control input-lg', 'placeholder': 'Le commentaire' } }) }}
+                                {{ form_widget(form.content, { 'attr': {'class': 'form-control input-lg', 'placeholder': 'Votre commentaire' } }) }}
                             <br/>
                             <button class="btn btn-primary" type="submit">Commenter</button>
                             {{ form_end(form) }}
@@ -44,9 +46,7 @@
                             {{ comment.content }}
                         </div>
                         <div class="col-4">
-
-                                <a class="btn btn-dark align-items-md-end" href="">Modifier</a>
-
+                            <a class="btn btn-dark align-items-md-end" href="">Modifier</a>
                         </div>
                     </div>
                 </div>
@@ -56,25 +56,34 @@
                 <p>Pas encore de commentaire</p>
             {% endfor %}
         </div>
+        {% else %}
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>Désolé, il n'existe pas d'article avec cet id.</p>
+                </div>
+        {% endif %}
+    {% endif %}
 
         <div class="col-lg-4">
-                <div class="card">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                {% for category in categories %}
+            <div class="card">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% for category in categories %}
+                                {% for article in articles %}
                                     {% if category.articles|length >= 1 %}
                                         <a href="{{ path('category_id', {'id': category.id}) }}">{{ category.nom }}({{ category.articles|length }})</a>
                                     {% endif %}
                                 {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 
 {% endblock %}

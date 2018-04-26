@@ -31,7 +31,7 @@ class ArticleController extends Controller
         $articles = $this
             ->getDoctrine()
             ->getRepository(Article::class)
-            ->findAll();
+            ->getArticles();
 
         $categories = $this
             ->getDoctrine()
@@ -49,6 +49,8 @@ class ArticleController extends Controller
      * @route("/{id}", name="article_id")
      * @param $id
      * @return Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getArticleByCategory($id)
     {
@@ -96,6 +98,11 @@ class ArticleController extends Controller
             return $this->redirectToRoute('article_show', array('id' => $id));
         }
 
+        $articles = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->getArticles();
+
         $article = $this
             ->getDoctrine()
             ->getRepository(Article::class)
@@ -113,6 +120,7 @@ class ArticleController extends Controller
 
         return $this->render("articles/show.html.twig", [
             "article" => $article,
+            "articles" => $articles,
             "comments" => $comments,
             "form" => $form->createView(),
             "categories" => $categories,

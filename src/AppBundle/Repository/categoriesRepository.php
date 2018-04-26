@@ -26,4 +26,6 @@ class categoriesRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getSingleResult();
     }
+
+
 }

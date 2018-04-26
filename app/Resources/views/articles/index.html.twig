@@ -28,9 +28,15 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            {% for category in categories %}
-                                {% if category.articles|length >= 1 %}
-                                    <a href="{{ path('category_id', {'id': category.id}) }}">{{ category.nom }}({{ category.articles|length }})</a>
+                            {% for article in articles %}
+                                {% if article.isActive == "1" %}
+                                    {% for category in categories %}
+                                        {% if category.articles|length >= 1 %}
+                                            <a href="{{ path('category_id', {'id': category.id}) }}">{{ category.nom }}({{ category.articles|length }})</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% else %}
+
                                 {% endif %}
                             {% endfor %}
                         </div>

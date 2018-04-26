@@ -34,6 +34,3 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    app.category_uploader:
-        class: AppBundle\Uploader\FileUploader
-        arguments: ['%category_images_directory%']
