@@ -218,4 +218,3 @@ class hematurieMicro
         return $this->date;
     }
 }
-

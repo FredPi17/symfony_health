@@ -125,4 +125,3 @@ class hematurieMacro
         return $this->commentaire;
     }
 }
-

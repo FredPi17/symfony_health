@@ -125,4 +125,3 @@ class traitements
         return $this->date;
     }
 }
-

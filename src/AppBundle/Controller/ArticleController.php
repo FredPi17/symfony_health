@@ -73,7 +73,10 @@ class ArticleController extends Controller
     /**
      * @Route("/show/{id}", name="article_show")
      * @param $id
+     * @param Request $request
      * @return Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function showArticleById($id, Request $request){
         $em = $this->getDoctrine()->getManager();

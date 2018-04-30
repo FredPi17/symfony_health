@@ -1,6 +1,83 @@
 {% extends ':dashboard:baseDash.html.twig' %}
 
 {% block body %}
-<h1>Articles</h1>
+    <br>
+    <div class="row">
+        <h1 class="page-header">Articles</h1>
+        <a href="{{ path('new_article') }}" class="btn btn-info align-items-md-center" style="margin-left: 20px;margin-top: 5px; height: 40px;">Nouveau</a>
+    </div>
 
+    <hr>
+    <div class="row">
+        <a href="{{ path('dash_article') }}" class="btn btn-secondary">Afficher tout</a>
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Statut
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{{ path('article_published') }}">Publié</a>
+                <a class="dropdown-item" href="{{ path('article_draft') }}">Brouillon</a>
+                <a class="dropdown-item" href="{{ path('dash_article') }}">Tous</a>
+            </div>
+        </div>
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Catégorie
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                {% for category in categories %}
+                <a class="dropdown-item" href="{{ path('article_category', {'id': category.id}) }}">{{ category.nom }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Auteur</th>
+                <th scope="col">Catégories</th>
+                <th scope="col">Date</th>
+                <th scope="col">Statut</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if articleCategories != "" %}
+                {% for article in articles %}
+                    <tr>
+                        <th scope="row"><a href="{{ path('edit_article', {'id': article.id}) }}">{{ article.id }}</a></th>
+                        <td><a href="{{ path('edit_article', {'id': article.id}) }}">{{ article.titre }}</a></td>
+                        <td>{{ article.auteur }}</td>
+                        <td>
+                            <div class="row">
+                                {% for articleCategory in articleCategories %}
+                                    {% if article.id == articleCategory.articleId %}
+                                        {% for category in categories %}
+                                            {% if articleCategory.categoryId == category.id %}
+                                                <div class="col-md-3">
+                                                    {{ category.nom }}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td>{{ article.date|date('d-m-Y') }}</td>
+                        <td>
+                            {% if article.isActive == '1' %}
+                                Publié
+                            {% else %}
+                                Brouillon
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

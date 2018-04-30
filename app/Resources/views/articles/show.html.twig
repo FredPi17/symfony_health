@@ -12,7 +12,7 @@
             {% if article.image == '' %}
             <img src="{{ asset('uploads/category/default-image.png') }}" style="width:900px; height: 300px;" class="img-fluid rounded">
             {% else %}
-            <img src="{{ asset('uploads/category/' ~ article.image) }}" class="img-fluid rounded">
+            <img src="{{ asset('uploads/article/' ~ article.image) }}" class="img-fluid rounded">
             {% endif %}
             <hr>
             <p>Posté le {{ article.date|date('d-m-Y') }}</p>

@@ -1,6 +1,44 @@
 {% extends ':dashboard:baseDash.html.twig' %}
 
 {% block body %}
-    <h1>Commentaires</h1>
+    <br>
+    <h1 class="page-header">Commentaires</h1>
+    <hr>
 
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">Commentaires en attente</h3>
+        {% if comments|length == "" %}
+        Pas de commentaire en attente
+        {% endif %}
+    {% for comment in comments %}
+
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="heading{{ comment.username }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#{{ comment.username}}" aria-expanded="true" aria-controls="{{ comment.username }}">
+                        {{ comment.username }} le {{ comment.date|date('d-m-Y') }}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="{{ comment.username }}" class="collapse" aria-labelledby="heading{{ comment.username }}" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="card-title">{{ comment.username }}</h5>
+                            <p class="card-text">{{ comment.content }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{{ path('comment_validate', {'id': comment.id}) }}" class="btn btn-primary align-items-md-end">Approuver</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
 {% endblock %}

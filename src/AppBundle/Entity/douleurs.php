@@ -559,4 +559,3 @@ class douleurs
         return $this->commentaire;
     }
 }
-

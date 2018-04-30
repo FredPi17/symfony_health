@@ -342,4 +342,3 @@ class basfi
         return $this->questionDix;
     }
 }
-

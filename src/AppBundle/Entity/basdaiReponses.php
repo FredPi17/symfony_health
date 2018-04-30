@@ -249,4 +249,3 @@ class basdaiReponses
         return $this->date;
     }
 }
-

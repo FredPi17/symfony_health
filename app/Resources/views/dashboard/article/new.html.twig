@@ -1,0 +1,13 @@
+{% extends ':dashboard:baseDash.html.twig' %}
+
+{% block body %}
+<br>
+<h1 class="page-header">Création d'un article</h1>
+<hr>
+
+{{ form_start(form) }}
+        {{ form_widget(form) }}
+<input type="submit" value="Ajouter" />
+{{ form_end(form) }}
+
+{% endblock %}

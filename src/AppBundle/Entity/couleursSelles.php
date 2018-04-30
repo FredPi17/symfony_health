@@ -311,4 +311,3 @@ class couleursSelles
         return $this->commentaire;
     }
 }
-

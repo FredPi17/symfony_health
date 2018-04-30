@@ -125,4 +125,3 @@ class frequenceJournaliere
         return $this->commentaire;
     }
 }
-

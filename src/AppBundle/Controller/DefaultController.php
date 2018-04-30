@@ -12,8 +12,11 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $categories = $this->getDoctrine()
             ->getRepository(categories::class)

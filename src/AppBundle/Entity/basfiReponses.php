@@ -372,5 +372,18 @@ class basfiReponses
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set questionSeptRep.
+     *
+     * @param int $questionSeptRep
+     *
+     * @return basfiReponses
+     */
+    public function setQuestionSeptRep($questionSeptRep)
+    {
+        $this->questionSeptRep = $questionSeptRep;
+
+        return $this;
+    }
+}

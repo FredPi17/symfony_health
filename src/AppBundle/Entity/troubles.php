@@ -373,4 +373,3 @@ class troubles
         return $this->commentaire;
     }
 }
-

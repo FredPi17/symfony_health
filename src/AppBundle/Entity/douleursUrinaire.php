@@ -187,4 +187,3 @@ class douleursUrinaire
         return $this->commentaire;
     }
 }
-

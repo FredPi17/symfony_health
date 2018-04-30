@@ -43,6 +43,8 @@ class categoryController extends Controller
      * @Route("/{id}", name="category_id")
      * @param categories $id
      * @return Response
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function showCategory($id){
 

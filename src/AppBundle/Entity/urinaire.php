@@ -187,4 +187,3 @@ class urinaire
         return $this->commentaire;
     }
 }
-

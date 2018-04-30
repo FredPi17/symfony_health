@@ -18,7 +18,7 @@
             {% if article.image == '' %}
                 <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="{{ asset('uploads/category/default-image.png') }}" style="width: 200px; height: 250px;" data-holder-rendered="true">
             {% else %}
-            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="{{ asset('uploads/category/' ~ article.image) }}" style="width: 200px; height: 250px;" data-holder-rendered="true">
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="{{ asset('uploads/article/' ~ article.image) }}" style="width: 200px; height: 250px;" data-holder-rendered="true">
             {% endif %}
                 <div class="card-body d-flex flex-column align-items-start">
                 <strong class="d-inline-block mb-2 text-primary"></strong>

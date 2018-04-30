@@ -72,6 +72,11 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: AppBundle\Entity\User
+    registration:
+        form:
+            type: acmo_user_registration
+        confirmation:
+            enabled: true
     from_email:
         address: fpinaud17@gmail.com
         sender_name: Frederic Pinaud

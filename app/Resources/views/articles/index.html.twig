@@ -9,7 +9,7 @@
                     {% if article.image == '' %}
                     <img class="card-img-top" src="{{ asset('uploads/category/default-image.png') }}" width="750px" height="300px" alt="card image">
                     {% else %}
-                    <img class="card-img-top" src="{{ asset('uploads/category/' ~ article.image) }}" width="750px" height="300px" alt="card image">
+                    <img class="card-img-top" src="{{ asset('uploads/article/' ~ article.image) }}" width="750px" height="300px" alt="card image">
                     {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ article.titre }}</h2>
